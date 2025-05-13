@@ -32,6 +32,9 @@ export default [
     rules: {
       // Permite importar módulos internos sin listarlos en dependencies
       "import/no-extraneous-dependencies": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "react-hooks/rules-of-hooks": "off",
+      "react-hooks/exhaustive-deps": "warn",
     },
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),

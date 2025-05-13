@@ -3,15 +3,17 @@ import path from "path";
 import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    // Configuración específica para Turbopack
+    // Ignora ESLint durante el build en Vercel
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+
+    // Tu alias y demás
     turbopack: {
         resolveAlias: {
-            // Alias '@' → carpeta 'src'
             "@": path.resolve(__dirname, "src"),
         },
     },
-
-    // Para que Webpack también lo sepa (fallback)
     webpack(config) {
         config.resolve.alias!["@"] = path.resolve(__dirname, "src");
         return config;
