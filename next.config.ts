@@ -1,4 +1,3 @@
-// next.config.ts
 import path from "path";
 import { NextConfig } from "next";
 
@@ -8,12 +7,14 @@ const nextConfig: NextConfig = {
         ignoreDuringBuilds: true,
     },
 
-    // Tu alias y demás
+    // Alias '@' → carpeta 'src'
     turbopack: {
         resolveAlias: {
             "@": path.resolve(__dirname, "src"),
         },
     },
+
+    // Fallback para Webpack
     webpack(config) {
         config.resolve.alias!["@"] = path.resolve(__dirname, "src");
         return config;
