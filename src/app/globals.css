@@ -1,26 +1,109 @@
-@import "tailwindcss";
+/* src/app/globals.css */
+
+/* Importa las fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Paleta verde-naturaleza + teal suave */
+    --color-primary:   #2F855A;  /* verde bosque */
+    --color-secondary: #38A169;  /* verde claro */
+    --color-accent:    #319795;  /* teal suave */
+    --color-bg:        #EDFDFD;  /* blanco verdoso muy claro */
+    --color-card:      #FFFFFF;  /* blanco puro para cards */
+    --color-text:      #1A202C;  /* gris oscuro */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Header */
+header {
+    background: var(--color-primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+header nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+header a {
+    color: var(--color-card);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+header a:hover {
+    color: var(--color-secondary);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Buttons */
+button {
+    font-family: inherit;
+    font-weight: 500;
+    background: var(--color-secondary);
+    color: var(--color-card);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+button:hover {
+    background: var(--color-primary);
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Space Grotesk', serif;
+    margin: 1rem 0 0.5rem;
+    color: var(--color-text);   /* ← aquí cambiamos a var(--color-text) */
+}
+
+
+
+
+/* Layout containers */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Animaciones suaves */
+.fade-in {
+    animation: fadeIn 0.5s ease-out both;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Cards */
+.card {
+    position: relative;
+    z-index: 10;
+    background: var(--color-card);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+
+/* Separadores */
+.separator {
+    height: 4px;
+    background: var(--color-accent);
+    margin: 2rem 0;
 }
